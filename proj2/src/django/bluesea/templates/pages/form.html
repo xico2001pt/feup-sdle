@@ -1,0 +1,9 @@
+{% extends 'templates/base.html' %}
+
+{% block title %}BlueSea | {{ page_title }}{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    {% include 'components/form.html' %}
+{% endblock %}

@@ -1,0 +1,5 @@
+<form action="{% url 'unfollow' %}" method="POST" class="d-flex justify-content-end">
+    {% csrf_token %}
+    <input type="hidden" name="username" value="{{ follow.username }}">
+    <button type="submit" class="btn btn-link link-secondary p-0">Unfollow</button>
+</form>

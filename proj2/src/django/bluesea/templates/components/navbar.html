@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="{% url 'homepage' %}">BlueSea</a>
+        <!-- <div class="navbar-nav me-auto">
+            {% if user.is_authenticated %}
+                {% url 'createPost' as createPost_url %}
+                <a class="nav-link {% if request.path == createPost_url %} active {% endif %}" href="{{ createPost_url }}">Create Post</a>
+            {% endif %}
+        </div> -->
+        <div class="navbar-nav ms-auto">
+            {% if user.is_authenticated %}
+                <span class="navbar-text fw-bold me-2">{{ user.username }}</span>
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                {% url 'login' as login_url %}
+                <a class="nav-link {% if request.path == login_url %} active {% endif %}" href="{{ login_url }}">Login</a>
+                {% url 'register' as register_url %}
+                <a class="nav-link {% if request.path == register_url %} active {% endif %}" href="{{ register_url }}">Register</a>
+            {% endif %}
+        </div>
+    </div>
+</nav>  

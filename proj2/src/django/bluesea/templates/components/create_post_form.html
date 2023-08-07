@@ -1,0 +1,5 @@
+<form action="{% url 'post' %}" method="POST" class="d-flex justify-content-between">
+    {% csrf_token %}
+    <input type="text" name="text" placeholder="write down your ideas here" class="form-control me-2" required>
+    <button type="submit" class="btn btn-secondary">Post</button>
+</form>

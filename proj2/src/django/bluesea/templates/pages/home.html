@@ -1,0 +1,23 @@
+{% extends 'templates/base.html' %}
+
+{% block title %}BlueSea | Homepage{% endblock %}
+
+{% block content %}
+    {% include 'components/messages.html' %}
+    {% if user.is_authenticated %}
+        <div class="mb-3">
+            {% include 'components/create_post_form.html' %}
+        </div>
+        {% for post in posts %}
+            <div class="card mb-3">
+                <div class="card-header d-flex justify-content-between">
+                    <span><strong>@{{ post.author.username }}</strong> posted:</span>
+                    <span class="fw-lighter">At {{ post.date }}</span>
+                </div>
+                <div class="card-body">
+                    {{ post.text }}
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
